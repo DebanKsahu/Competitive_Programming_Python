@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# CPH Judge files
+/pypy3/.cph
