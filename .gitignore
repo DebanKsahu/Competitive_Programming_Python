@@ -10,4 +10,6 @@ wheels/
 .venv
 
 # CPH Judge files
-/pypy3/.cph
+# Ignore the .cph directory inside pypy3 and its contents
+/pypy3/.cph/
+*.cph

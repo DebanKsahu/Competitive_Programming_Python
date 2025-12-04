@@ -70,8 +70,32 @@ mod = 998244353
 def main():
     t = int(input())
     for testCase in range(t):
-        n,k,q = map(int,input().split())
-        arr = [-1 for _ in range(n)]
+        n = int(input())
+        arr = tuple(map(int,input().split()))
+        mapp = defaultdict(int)
+        for i in range(2*n):
+            mapp[arr[i]]+=1
+        count=0
+        evenCount = 0
+        oddCount = 0
+        for key,value in mapp.items():
+            if value%2==0:
+                if (value//2)%2!=0:
+                    count+=2
+                else:
+                    evenCount+=1
+            else:
+                oddCount+=1
+                count+=1
+        if evenCount>0:
+            if evenCount>1:
+                count+=2*evenCount
+            else:
+                if oddCount>0:
+                    count+=2
+
+        print(count)
+
         
 
 if __name__ == "__main__":
