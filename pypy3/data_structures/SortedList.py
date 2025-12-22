@@ -1,5 +1,6 @@
 from bisect import bisect_left, bisect_right
 
+
 class FenwickTree:
     def __init__(self, x):
         bit = self.bit = list(x)
@@ -36,7 +37,10 @@ class SortedList:
 
     def __init__(self, iterable=()):
         iterable = sorted(iterable)
-        self.micros = [iterable[i:i + self.block_size - 1] for i in range(0, len(iterable), self.block_size - 1)] or [[]]
+        self.micros = [
+            iterable[i : i + self.block_size - 1]
+            for i in range(0, len(iterable), self.block_size - 1)
+        ] or [[]]
         self.macro = [m[0] for m in self.micros[1:] if m]
         self.micro_size = [len(m) for m in self.micros]
         self.fenwick = FenwickTree(self.micro_size)
@@ -170,7 +174,7 @@ class SortedList:
 
         j = bisect_left(self.micros[i], x)
         if j == len(self.micros[i]) or self.micros[i][j] != x:
-            return 
+            return
 
         self.micros[i].pop(j)
         self.size -= 1

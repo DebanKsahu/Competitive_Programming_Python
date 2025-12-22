@@ -13,3 +13,4 @@ wheels/
 # Ignore the .cph directory inside pypy3 and its contents
 /pypy3/.cph/
 *.cph
+.cph
